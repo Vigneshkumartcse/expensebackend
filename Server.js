@@ -4,6 +4,7 @@ const app = express();
 app.use(express.json());
 require('dotenv').config();
 const PORT = process.env.PORT || 5000;
+const MONGO_URI ="mongodb+srv://vigneshkumar:Kumar%402002@cluster0.1npwyyr.mongodb.net/expenseTracker?retryWrites=true&w=majority&appName=Cluster0";
 
 
 
@@ -30,9 +31,9 @@ const Expense = mongoose.model('Expense', expenseSchema);
 
 // const MONGO_URI = "mongodb+srv://vigneshkumar:Kumar%402002@cluster0.1npwyyr.mongodb.net/expenseTracker?retryWrites=true&w=majority&appName=Cluster0";
   
+console.log(MONGO_URI);
 
-
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB');
     })
